@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Свадебное приглашение — Анастасия и Виталий</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbf6ef;
+  --bg2:#f3eadf;
+  --cream:#fffaf4;
+  --text:#4f453d;
+  --muted:#7b6d62;
+  --accent:#b98f83;
+  --accent2:#9aa98e;
+  --gold:#b88a5a;
+  --card:rgba(255,250,244,.82);
+  --shadow:0 24px 70px rgba(98,74,56,.14);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Manrope,sans-serif;
+  background:radial-gradient(circle at top,var(--cream),var(--bg) 55%,var(--bg2));
+  color:var(--text);
+  overflow-x:hidden
+}
+a{text-decoration:none;color:inherit}
+main{width:100%}
+.section{
+  position:relative;
+  min-height:100vh;
+  padding:24px;
+  display:flex;
+  align-items:center;
+  justify-content:center
+}
+.panel{
+  position:relative;
+  width:min(1180px,100%);
+  border-radius:34px;
+  background:linear-gradient(180deg,rgba(255,252,248,.88),rgba(248,240,230,.82));
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  border:1px solid rgba(188,163,147,.32)
+}
+.panel-inner{
+  position:relative;
+  z-index:2;
+  padding:clamp(22px,4vw,42px)
+}
+.top-nav{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-bottom:18px
+}
+.top-nav a{
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.55);
+  font-size:13px;
+  letter-spacing:.04em;
+  border:1px solid rgba(170,145,132,.18)
+}
+.hero{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:22px;
+  align-items:stretch;
+  min-height:82vh
+}
+.hero-copy{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:24px 10px 24px 18px
+}
+.kicker{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(22px,3vw,34px);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin:0 0 10px
+}
+.names{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(56px,8vw,98px);
+  line-height:.95;
+  color:#6a4c45;
+  margin:0 0 10px;
+  text-shadow:0 1px 0 rgba(255,255,255,.7)
+}
+.date{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(34px,5vw,58px);
+  font-weight:700;
+  color:#5a463d;
+  margin:0 0 18px
+}
+.quote{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(32px,4.5vw,50px);
+  color:#9a6b63;
+  margin:14px 0
+}
+.invite{
+  font-size:clamp(18px,2vw,24px);
+  line-height:1.72;
+  color:#564b43;
+  max-width:42ch;
+  margin:6px 0 0
+}
+.photo-shell{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:22px
+}
+.photo-frame{
+  position:relative;
+  width:100%;
+  height:100%;
+  min-height:520px;
+  border-radius:30px;
+  background:linear-gradient(180deg,rgba(255,255,255,.64),rgba(255,247,241,.56));
+  padding:18px;
+  box-shadow:inset 0 0 0 1px rgba(158,130,116,.16)
+}
+.photo-main{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:22px;
+  filter:saturate(1.02) contrast(1.03)
+}
+.couple-photo{
+  object-position:55% center;
+}
+.badge{
+  position:absolute;
+  left:24px;
+  top:24px;
+  background:rgba(255,250,244,.88);
+  backdrop-filter:blur(8px);
+  padding:12px 16px;
+  border-radius:18px;
+  border:1px solid rgba(173,146,131,.18);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase
+}
+.flower-border{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.98
+}
+.flower{
+  position:absolute;
+  width:170px;
+  height:170px;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+  filter:drop-shadow(0 10px 18px rgba(93,72,60,.12))
+}
+.flower.tl{left:-22px;top:-12px;transform:rotate(-8deg)}
+.flower.tr{right:-22px;top:-12px;transform:scaleX(-1) rotate(-8deg)}
+.flower.bl{left:-26px;bottom:-10px;transform:scaleY(-1) rotate(-10deg)}
+.flower.br{right:-26px;bottom:-10px;transform:scale(-1)}
+.floral-bg{
+  position:absolute;
+  inset:0;
+  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2400" viewBox="0 0 1800 2400"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="%23fff9f2"/><stop offset="1" stop-color="%23f7ede1"/></linearGradient></defs><rect width="1800" height="2400" fill="url(%23g)"/><g opacity=".25" fill="none" stroke="%23c8b0a0" stroke-width="2"><path d="M120 120c80 20 130 90 150 170"/><path d="M1680 120c-80 20-130 90-150 170"/><path d="M120 2280c80-20 130-90 150-170"/><path d="M1680 2280c-80-20-130-90-150-170"/></g></svg>');
+  opacity:.5
+}
+.grid{display:grid;gap:18px}
+.two{grid-template-columns:1fr 1fr}
+.card{
+  background:var(--card);
+  border:1px solid rgba(182,158,145,.22);
+  border-radius:26px;
+  padding:22px;
+  box-shadow:0 12px 30px rgba(99,76,58,.08);
+  backdrop-filter:blur(6px)
+}
+.h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(34px,4vw,52px);
+  margin:0 0 14px;
+  color:#5a463d;
+  line-height:1.05
+}
+.h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(26px,3vw,34px);
+  margin:0 0 10px;
+  color:#6a4c45
+}
+.p{
+  font-size:clamp(16px,1.65vw,19px);
+  line-height:1.7;
+  margin:0;
+  color:#594d46
+}
+.detail{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:14px;
+  align-items:start;
+  padding:14px 0;
+  border-top:1px solid rgba(168,143,128,.16)
+}
+.detail:first-of-type{border-top:none;padding-top:0}
+.time{
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;
+  color:var(--accent);
+  font-weight:700;
+  min-width:78px
+}
+.timeline .item{
+  display:grid;
+  grid-template-columns:92px 1fr;
+  gap:14px;
+  padding:16px 0;
+  border-bottom:1px solid rgba(164,140,128,.14)
+}
+.timeline .item:last-child{border-bottom:none}
+.timeline .t{
+  font-family:'Cormorant Garamond',serif;
+  font-size:30px;
+  color:var(--accent);
+  font-weight:700
+}
+.place-photo{
+  height:240px;
+  border-radius:22px;
+  overflow:hidden;
+  background:linear-gradient(135deg,#e8ddd3,#fff8f2);
+  position:relative;
+  border:1px solid rgba(171,145,131,.18)
+}
+.place-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block
+}
+.map-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 18px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#b99386,#9fb091);
+  color:#fff;
+  font-weight:700;
+  border:0;
+  box-shadow:0 14px 24px rgba(143,116,102,.22);
+  transition:transform .2s ease, box-shadow .2s ease;
+  min-height:48px
+}
+.map-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 18px 28px rgba(143,116,102,.26)
+}
+.cta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  align-items:center;
+  justify-content:space-between
+}
+.btn{
+  border:none;
+  cursor:pointer;
+  padding:16px 24px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#b99386,#9fb091);
+  color:#fff;
+  font-weight:700;
+  letter-spacing:.04em;
+  box-shadow:0 14px 24px rgba(143,116,102,.22)
+}
+.rsps{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:18px;
+  align-items:stretch
+}
+.note{
+  padding:20px;
+  border-radius:24px;
+  background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(248,240,232,.88));
+  border:1px solid rgba(169,144,130,.18)
+}
+.small{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.7
+}
+.footerline{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(22px,2.6vw,30px);
+  text-align:center;
+  color:#725b50;
+  margin-top:8px
+}
+.gift-note{
+  display:flex;
+  flex-direction:column;
+  justify-content:center
+}
+.contact-list{
+  display:grid;
+  gap:12px;
+  margin-top:14px
+}
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 16px;
+  border-radius:18px;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(166,140,127,.18)
+}
+.contact-item strong{
+  min-width:82px;
+  color:#6a4c45
+}
+.contact-item a{
+  color:#564b43;
+  word-break:break-word
+}
+.icon{
+  width:22px;
+  height:22px;
+  display:inline-block;
+  flex:0 0 22px
+}
+.icon svg{
+  width:100%;
+  height:100%;
+  display:block
+}
+.chat-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  justify-content:center;
+  margin-top:18px
+}
+@media (max-width: 980px){
+  .hero,.two,.rsps{grid-template-columns:1fr}
+  .photo-frame{min-height:420px}
+  .hero-copy{padding:10px 0 0}
+  .flower{opacity:.85}
+}
+@media (max-width: 640px){
+  .section{padding:12px}
+  .panel{border-radius:24px}
+  .panel-inner{padding:16px}
+  .names{font-size:54px}
+  .date{font-size:32px}
+  .invite{font-size:17px}
+  .photo-frame{min-height:320px;padding:10px}
+  .badge{left:12px;top:12px}
+  .top-nav a{font-size:12px;padding:8px 12px}
+}
+</style>
+</head>
+<body>
+<main>
+  <section class="section" id="home">
+    <div class="panel">
+      <div class="floral-bg"></div>
+      <div class="flower-border">
+        <div class="flower tl" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220"><defs><linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop stop-color="%23f5d8c8"/><stop offset="1" stop-color="%23e8b0ad"/></linearGradient><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="%23cf6f67"/><stop offset="1" stop-color="%238e2c2c"/></linearGradient></defs><rect width="220" height="220" fill="none"/><g transform="translate(110 110)"><ellipse rx="70" ry="34" fill="%23f0dfd7" opacity=".8" transform="rotate(20)"/><ellipse rx="24" ry="54" fill="url(%23a)" transform="rotate(-42)"/><ellipse rx="24" ry="54" fill="url(%23a)" transform="rotate(0)"/><ellipse rx="24" ry="54" fill="url(%23a)" transform="rotate(42)"/><ellipse rx="20" ry="50" fill="url(%23b)" transform="rotate(82)"/><circle r="16" fill="%23946b5d"/><circle r="8" fill="%23d8b98f"/></g><path d="M42 170c30-14 54-45 64-78" stroke="%2391a989" stroke-width="10" stroke-linecap="round" fill="none"/><path d="M63 160c18-13 28-31 33-52" stroke="%23c8a08d" stroke-width="6" stroke-linecap="round" fill="none"/></svg>');"></div>
+        <div class="flower tr" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220"><defs><linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop stop-color="%23e5c7af"/><stop offset="1" stop-color="%23f3dacf"/></linearGradient><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="%23d06a61"/><stop offset="1" stop-color="%23a94743"/></linearGradient></defs><g transform="translate(110 110)"><ellipse rx="70" ry="34" fill="%23f0dfd7" opacity=".8" transform="rotate(20)"/><ellipse rx="24" ry="54" fill="url(%23a)" transform="rotate(-42)"/><ellipse rx="24" ry="54" fill="url(%23a)" transform="rotate(0)"/><ellipse rx="24" ry="54" fill="url(%23a)" transform="rotate(42)"/><ellipse rx="20" ry="50" fill="url(%23b)" transform="rotate(82)"/><circle r="16" fill="%23946b5d"/><circle r="8" fill="%23d8b98f"/></g><path d="M42 170c30-14 54-45 64-78" stroke="%2391a989" stroke-width="10" stroke-linecap="round" fill="none"/><path d="M63 160c18-13 28-31 33-52" stroke="%23c8a08d" stroke-width="6" stroke-linecap="round" fill="none"/></svg>');"></div>
+        <div class="flower bl" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220"><defs><linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop stop-color="%23c67c7c"/><stop offset="1" stop-color="%239a3d3d"/></linearGradient><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="%23ff5b6e"/><stop offset="1" stop-color="%23c81f42"/></linearGradient></defs><path d="M75 58c29-23 63-21 90 2 21 19 24 49 9 74-17 28-47 44-78 42-34-2-61-23-70-52-8-27 3-54 49-66z" fill="url(%23b)"/><path d="M89 66c18-13 38-11 56 2 13 10 15 28 6 42-10 16-30 25-49 24-20-1-37-14-42-30-5-15 1-31 29-38z" fill="%23ff7186" opacity=".75"/><path d="M55 165c24-16 49-42 67-89" stroke="%2391a989" stroke-width="11" stroke-linecap="round" fill="none"/><path d="M91 154c16-11 29-27 35-46" stroke="%23c8a08d" stroke-width="6" stroke-linecap="round" fill="none"/></svg>');"></div>
+        <div class="flower br" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="%23f1ddcf"/><stop offset="1" stop-color="%23e6b8b0"/></linearGradient><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="%23d45c68"/><stop offset="1" stop-color="%239f3343"/></linearGradient></defs><g transform="translate(110 110)"><ellipse rx="72" ry="34" fill="%23f0dfd7" opacity=".8" transform="rotate(20)"/><ellipse rx="24" ry="54" fill="url(%23g1)" transform="rotate(-42)"/><ellipse rx="24" ry="54" fill="url(%23g1)" transform="rotate(0)"/><ellipse rx="24" ry="54" fill="url(%23g1)" transform="rotate(42)"/><ellipse rx="20" ry="50" fill="url(%23g2)" transform="rotate(82)"/><circle r="16" fill="%23946b5d"/><circle r="8" fill="%23d8b98f"/></g><path d="M42 170c30-14 54-45 64-78" stroke="%2391a989" stroke-width="10" stroke-linecap="round" fill="none"/><path d="M63 160c18-13 28-31 33-52" stroke="%23c8a08d" stroke-width="6" stroke-linecap="round" fill="none"/></svg>');"></div>
+      </div>
+      <div class="panel-inner hero">
+        <div class="hero-copy">
+          <div class="top-nav">
+            <a href="#details">Церемония</a><a href="#schedule">Расписание</a><a href="#places">Фото мест</a><a href="#chat">Чат</a><a href="#rsvp">RSVP</a><a href="#contacts">Контакты</a>
+          </div>
+          <p class="kicker">Wedding Invitation</p>
+          <h1 class="names">Анастасия &amp; Виталий</h1>
+          <p class="date">14 августа 2026</p>
+          <div class="quote">«Любовь окрыляет»</div>
+          <p class="invite">С радостью приглашаем вас разделить с нами один из самых важных и трепетных дней нашей жизни. Будем счастливы видеть вас на нашей свадьбе.</p>
+        </div>
+        <div class="photo-shell">
+          <div class="photo-frame">
+            <div class="badge">Свадебное приглашение</div>
+            <img class="photo-main couple-photo" src="https://allwebs.ru/images/2026/06/21/01f753816c8756d90d19f1d3a22a2984.jpg" alt="Анастасия и Виталий" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="details">
+    <div class="panel"><div class="panel-inner">
+      <div class="grid two">
+        <div class="card">
+          <h2 class="h2">Церемония и банкет</h2>
+          <div class="detail"><div class="time">11:50</div><div><div class="h3">Торжественная регистрация</div><div class="p">ЗАГС г. Иркутск, ул. Декабрьских Событий, д. 106, зал «Красавица Ангара».</div></div></div>
+          <div class="detail"><div class="time">16:00</div><div><div class="h3">Сбор гостей</div><div class="p">Ресторан «Ривьера», г. Иркутск, ул. Лыткина, 42а.</div></div></div>
+          <div class="detail"><div class="time">17:00</div><div><div class="h3">Начало торжества</div><div class="p">Банкет в ресторане «Ривьера», г. Иркутск, ул. Лыткина, 42а.</div></div></div>
+          <div class="detail"><div class="time">7.08</div><div><div class="h3">Ответ до указанной даты</div><div class="p">Подтвердите присутствие до 7 августа 2026 года.</div></div></div>
+        </div>
+        <div class="card">
+          <h2 class="h2">Приглашение</h2>
+          <p class="p">Этот день мы хотим разделить с самыми дорогими людьми. Ваше присутствие сделает праздник ещё теплее и светлее.</p>
+          <div style="height:18px"></div>
+          <div class="note"><div class="h3" style="margin-bottom:8px">Дата свадьбы</div><div class="date" style="margin:0;font-size:clamp(30px,4vw,48px)">14 августа 2026</div><p class="small" style="margin-top:10px">Пожалуйста, приходите вовремя: так мы сможем спокойно провести церемонию, фотосессию и праздничный вечер.</p></div>
+        </div>
+      </div>
+
+      <div style="height:18px"></div>
+      <div class="card">
+        <h2 class="h2">Наша история любви</h2>
+        <p class="p"><strong>Анастасия:</strong> Мы познакомились 30 мая 2024 года — и уже с первой встречи всё оказалось немного не таким, как обычно: наше первое свидание случилось в магазине автозапчастей, что до сих пор вызывает у нас улыбку. А потом мы поехали гулять, и среди обычного вечера неожиданно вспыхнула та самая искра, из которой рождается что-то настоящее.</p>
+        <div style="height:12px"></div>
+        <p class="p"><strong>Виталий:</strong> Через два года, под бой курантов, я сделал Анастасии предложение. И в этот волшебный новогодний миг прозвучало самое важное «Да!». Так началась новая глава нашей истории — нежной, тёплой и очень счастливой.</p>
+      </div>
+
+      <div style="height:18px"></div>
+      <div class="grid two">
+        <div class="card"><h2 class="h2">Анастасия</h2><div class="photo-shell" style="padding:0"><div class="photo-frame" style="min-height:360px;border-radius:50%;aspect-ratio:1/1;padding:10px;margin:0 auto;max-width:360px"><img class="photo-main" style="border-radius:50%" src="https://allwebs.ru/images/2026/06/21/cf39786d01de7bcdc95522e9107bd9a5.jpg" alt="Невеста" /></div></div></div>
+        <div class="card"><h2 class="h2">Виталий</h2><div class="photo-shell" style="padding:0"><div class="photo-frame" style="min-height:360px;border-radius:50%;aspect-ratio:1/1;padding:10px;margin:0 auto;max-width:360px"><img class="photo-main" style="border-radius:50%" src="https://allwebs.ru/images/2026/06/21/de02f5ff3fc263691c31b829dc37e6e8.jpg" alt="Жених" /></div></div></div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section" id="schedule">
+    <div class="panel"><div class="panel-inner">
+      <h2 class="h2">Свадебное расписание</h2>
+      <div class="card timeline">
+        <div class="item"><div class="t">11:50</div><div><div class="h3">Торжественная регистрация</div><div class="p">ЗАГС г. Иркутск, ул. Декабрьских Событий, д. 106, зал «Красавица Ангара».</div></div></div>
+        <div class="item"><div class="t">12:20</div><div><div class="h3">Фотосессия</div><div class="p">Сразу после регистрации.</div></div></div>
+        <div class="item"><div class="t">16:00</div><div><div class="h3">Фуршет</div><div class="p">Ресторан «Ривьера», г. Иркутск, ул. Лыткина, 42а.</div></div></div>
+        <div class="item"><div class="t">17:00</div><div><div class="h3">Банкет</div><div class="p">Ресторан «Ривьера», г. Иркутск, ул. Лыткина, 42а.</div></div></div>
+        <div class="item"><div class="t">24:00</div><div><div class="h3">Финал</div><div class="p">Завершение праздничного вечера.</div></div></div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section" id="places">
+    <div class="panel"><div class="panel-inner">
+      <h2 class="h2">Фото мест и карты</h2>
+      <div class="grid two">
+        <div class="card">
+          <div class="place-photo"><img src="https://glagol38.ru/public/images/upload/image8212760593.jpg" alt="ЗАГС г. Иркутск" /></div>
+          <div style="height:12px"></div>
+          <div class="h3">ЗАГС г. Иркутск</div>
+          <div class="p">ул. Декабрьских Событий, д. 106, зал «Красавица Ангара».</div>
+          <div style="height:14px"></div>
+          <a class="map-btn" href="https://2gis.ru/irkutsk/search/%D0%B7%D0%B0%D0%B3%D1%81%20%D0%B4%D0%B5%D0%BA%D0%B0%D0%B1%D1%80%D1%8C%D1%81%D0%BA%D0%B8%D1%85%20%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9/firm/1548640653599476/104.314124%2C52.280404?m=104.314124%2C52.280404%2F14.97" target="_blank" rel="noopener">Открыть карту ЗАГСа в 2ГИС</a>
+        </div>
+        <div class="card">
+          <div class="place-photo"><img src="https://rest-riviera.ru/%D0%A0%D0%B8%D0%B2%D1%8C%D0%B5%D1%80%D0%B0_03.jpg" alt="Ресторан «Ривьера»" /></div>
+          <div style="height:12px"></div>
+          <div class="h3">Ресторан «Ривьера»</div>
+          <div class="p">г. Иркутск, ул. Лыткина, 42а.</div>
+          <div style="height:14px"></div>
+          <a class="map-btn" href="https://go.2gis.com/2gaU7" target="_blank" rel="noopener">Открыть карту ресторана в 2ГИС</a>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section" id="chat">
+    <div class="panel">
+      <div class="panel-inner">
+        <div class="card">
+          <h2 class="h2">Присоединяйтесь к нашему уютному чату</h2>
+          <p class="p">
+            В чате можно познакомиться с другими гостями, задать вопросы, обсудить детали праздника и просто быть на связи до свадьбы.
+            Здесь не нужно стесняться — мы очень хотим, чтобы все чувствовали себя свободно, тепло и по-домашнему.
+          </p>
+          <div class="chat-actions">
+            <a class="btn" href="https://vk.me/join/JjkSKDnNEmmO7btIuSJbmEvnsASEjOR7Ldo=" target="_blank" rel="noopener">Присоединиться к чату</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="rsvp">
+    <div class="panel">
+      <div class="panel-inner">
+        <div class="rsps">
+          <div class="card">
+            <h2 class="h2">RSVP / подтверждение присутствия</h2>
+            <p class="p">Пожалуйста, подтвердите ваше присутствие на нашей свадьбе, перейдя по кнопке ниже.</p>
+            <div style="margin-top:18px; display:flex; justify-content:center;">
+              <a class="btn" href="https://forms.yandex.ru/u/6a3813cbd0468852fb49564d" target="_blank" rel="noopener">Открыть форму RSVP</a>
+            </div>
+          </div>
+
+          <div class="note gift-note">
+            <h2 class="h2" style="margin-bottom:12px;">Пожелания по подаркам</h2>
+            <p class="p">Ваше присутствие в день нашей свадьбы — самый значимый подарок для нас!</p>
+            <p class="p" style="margin-top:14px;">Мы понимаем, что дарить цветы на свадьбу — это традиция, но мы не сможем насладиться их красотой в полной мере...</p>
+            <p class="p" style="margin-top:14px;">Будем рады любой другой альтернативе: полезным девайсам или подарку в денежном эквиваленте.</p>
+            <div style="margin-top:16px; display:flex; justify-content:center;">
+              <a class="btn" href="https://followish.io/mywishlist/zwovhlocuyufkr" target="_blank" rel="noopener">Посмотреть вишлист</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contacts">
+    <div class="panel">
+      <div class="panel-inner">
+        <div class="card">
+          <h2 class="h2">Контакт для уточнений и обратной связи</h2>
+          <p class="p">Если у вас возникнут вопросы по мероприятию, пожалуйста, свяжитесь с нами удобным способом.</p>
+          <div class="contact-list">
+            <div class="contact-item">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#6a4c45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.08 5.18 2 2 0 0 1 5.06 3h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.61a2 2 0 0 1-.45 2.11L9.27 10.4a16 16 0 0 0 4.33 4.33l1-.96a2 2 0 0 1 2.11-.45c.84.29 1.71.5 2.61.62A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </span>
+              <strong>Телефон</strong>
+              <a href="tel:+79085948850">+7 908 594-88-50</a>
+            </div>
+
+            <div class="contact-item">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#6a4c45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16v16H4z"/>
+                  <path d="M22 6l-10 7L2 6"/>
+                </svg>
+              </span>
+              <strong>Email</strong>
+              <a href="mailto:sonremon@bk.ru">sonremon@bk.ru</a>
+            </div>
+
+            <div class="contact-item">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="#6a4c45">
+                  <path d="M12.5 3C7.25 3 3 6.79 3 11.5c0 2.69 1.38 5.09 3.57 6.66V21l2.98-1.64c.95.26 1.96.4 2.95.4 5.25 0 9.5-3.79 9.5-8.5S17.75 3 12.5 3zm1.03 11.42-2.1-2.24-4.11 2.24 4.52-4.8 2.03 2.14 4.18-2.14-4.52 4.8z"/>
+                </svg>
+              </span>
+              <strong>VK</strong>
+              <a href="https://vk.com/sonremon" target="_blank" rel="noopener">vk.com/sonremon</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <audio id="bg-music" loop preload="auto">
+    <source src="Labrinth-No-Ordinary.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const music = document.getElementById('bg-music');
+    music.volume = 0.25;
+    document.addEventListener('click', () => {
+      music.play().catch(() => {});
+    }, { once: true });
+  </script>
+</main>
+</body>
+</html>
